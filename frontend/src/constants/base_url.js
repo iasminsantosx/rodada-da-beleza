@@ -1,7 +1,4 @@
 
-require('dotenv').config();
-
-let { URL } = process.env;
-const BASE_URL = URL
+const BASE_URL ='https://rodada-da-beleza.vercel.app'
 
 export default BASE_URL;

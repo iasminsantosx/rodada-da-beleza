@@ -83,7 +83,7 @@ function EditarUsuario(){
         w={{ base: 70, md: 0 }}
           p="4"
           type="button"
-          bg="#FF33AF"
+          bg="#D73350"
           color="white"
           _hover={{ bg: "blue.500" }}
           position="absolute"
@@ -98,7 +98,7 @@ function EditarUsuario(){
       <Center
         as="header"
         h={140}
-        bg="#FF33AF"
+        bg="#D73350"
         color="white"
         fontWeight="bold"
         fontSize={{ base: '2xl', md: '4xl' }}
@@ -267,7 +267,7 @@ function EditarUsuario(){
                   w={{ base: 150, md: 240 }}
                   p="6"
                   type="submit"
-                  bg="#FF33AF" 
+                  bg="#D73350" 
                   color="white"
                   fontWeight="bold"
                   fontSize="xl"

@@ -84,7 +84,7 @@ function Admin() {
         <Center
           w="100%"
           maxW={840}
-          bg="#D73350"
+          bg="white"
           top={{ base: 50, md: '100px' }}
           position="absolute"
           borderRadius={5}
@@ -103,7 +103,7 @@ function Admin() {
                 w={240}
                 p="6"
                 type="submit"
-                bg="#FF33AF" // Alteração aqui para cor preta
+                bg="#D73350" // Alteração aqui para cor preta
                 color="white"
                 fontWeight="bold"
                 fontSize="xl"
@@ -121,7 +121,7 @@ function Admin() {
                 w={240}
                 p="6"
                 type="submit"
-                bg="#FF33AF" // Alteração aqui para cor preta
+                bg="#D73350" // Alteração aqui para cor preta
                 color="white"
                 fontWeight="bold"
                 fontSize="xl"
@@ -139,7 +139,7 @@ function Admin() {
                 w={240}
                 p="6"
                 type="submit"
-                bg="#FF33AF" // Alteração aqui para cor preta
+                bg="#D73350" // Alteração aqui para cor preta
                 color="white"
                 fontWeight="bold"
                 fontSize="xl"

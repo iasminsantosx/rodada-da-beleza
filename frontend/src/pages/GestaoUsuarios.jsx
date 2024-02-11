@@ -95,7 +95,7 @@ function GestaoUsuarios() {
         w={{ base: 70, md: 0 }}
         p="4"
         type="button"
-        bg="#FF33AF"
+        bg="#D73350"
         color="white"
         _hover={{ bg: "blue.500" }}
         position="absolute"
@@ -110,7 +110,7 @@ function GestaoUsuarios() {
       <Center
         as="header"
         h={140}
-        bg="#FF33AF"
+        bg="#D73350"
         color="white"
         fontWeight="bold"
         fontSize={{ base: 'xl', md: '4xl' }}

@@ -100,7 +100,7 @@ function EditarInscricao() {
         w={{ base: 70, md: 0 }}
           p="4"
           type="button"
-          bg="#FF33AF"
+          bg="#D73350"
           color="white"
           _hover={{ bg: "blue.500" }}
           position="absolute"
@@ -114,7 +114,7 @@ function EditarInscricao() {
     <Center
       as="header"
       h={140}
-      bg="#FF33AF"
+      bg="#D73350"
       color="white"
       fontWeight="bold"
       fontSize={{ base: 'xl', md: '4xl' }}
@@ -257,7 +257,7 @@ function EditarInscricao() {
                 w={{ base: 120, md: 240 }}
                 p="6"
                 type="submit"
-                bg="#FF33AF"
+                bg="#D73350"
                 color="white"
                 fontWeight="bold"
                 fontSize="xl"

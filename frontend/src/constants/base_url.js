@@ -1,5 +1,7 @@
-//const BASE_URL = 'https://projetobarber-five.vercel.app';
 
-const BASE_URL = 'https://rodada-da-beleza.vercel.app'
+require('dotenv').config();
+
+let { URL } = process.env;
+const BASE_URL = URL
 
 export default BASE_URL;

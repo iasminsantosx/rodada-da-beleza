@@ -1,1 +1,1 @@
-# Sistema de isncrição para a Rodada da Beleza
+# Sistema de inscrição para a Rodada da Beleza

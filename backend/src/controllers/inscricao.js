@@ -28,9 +28,12 @@ const inscrever = async (req, res) => {
 };
 
 const listarInscricoes = async (req, res) => {
+
+  const { page = 1, pageSize = 6 } = req.query;
     try {
 
-        const inscricoes = await knex("inscricao").select("*");
+      const offset = (page - 1) * pageSize;
+      const inscricoes = await knex("inscricao").select("*").limit(pageSize).offset(offset);;
       
         return res.status(200).json(inscricoes);
     

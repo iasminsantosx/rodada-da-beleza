@@ -15,8 +15,8 @@ async function inscreverService(inscreverPayload) {
 
   
 }
-async function listagemInscricaoService() {
-    const URL = `${BASE_URL}/inscricao`;
+async function listagemInscricaoService(page = 1, pageSize = 6) {
+    const URL = `${BASE_URL}/inscricao?page=${page}&pageSize=${pageSize}`;
   
     const token = localStorage.getItem('token');
   

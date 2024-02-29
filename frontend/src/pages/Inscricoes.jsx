@@ -18,6 +18,8 @@ function Inscricoes() {
 
   const [inscricoes, setIncricoes] = useState([]);
   const [quantidadeInscricao, setQuantidadeInscricao] = useState("");
+  const [page, setPage] = useState(1);
+  const pageSize = 6; 
  
 
 //--------------------------------------------------- Handles -------------------------------------------------------
@@ -52,6 +54,33 @@ function Inscricoes() {
     history.push('/administrador')
   }
 
+  const handleLoadMore = async () => {
+    try {
+        const nextPage = page + 1;
+        const response = await listagemInscricaoService(nextPage, pageSize);
+        if(response.data.length!==0){
+          const newInscricoes = response.data.map(ag => ({
+            id:ag.id,
+            nome:ag.nome,
+            cpf_cnpj: ag.cpf_cnpj,
+            instagram: ag.instagram,
+            celular: ag.celular,
+            cidade: ag.cidade,
+            estado: ag.estado,
+            endereco:ag.endereco,
+            cep:ag.cep
+          }));
+          setIncricoes([...inscricoes, ...newInscricoes]);
+          setPage(nextPage);
+        }
+        else{
+          showToastError("Não possuem mais agendamentos a serem carregados.");
+        }
+        
+      } catch (error) {
+        console.error(error);
+      }
+  };
 //---------------------------------------------------- Use Effect ----------------------------------------------------------
   const fetchInscricao = async () => {
     try {
@@ -192,6 +221,24 @@ function Inscricoes() {
               </Box>
               ))}
             </ul>
+            <VStack spacing="4">
+                <Box  mb="10">
+                    <Button
+                    p="4"
+                    type="button"
+                    bg="gray.900"
+                    color="white"
+                    _hover={{ bg: "blue.500" }}
+                    position="absolute"
+                    bottom={8}
+                    left="50%"
+                    transform="translateX(-50%)"
+                    onClick={handleLoadMore}
+                    >
+                    Carregar Mais 
+                    </Button>
+                </Box> 
+            </VStack>
           </FormControl>
         </Center>
       </Flex>

@@ -1,8 +1,8 @@
 
 import { useState, useEffect, useContext } from 'react';
-import { Flex, Box, Center, FormControl, HStack, Button, Image, Input, Text } from "@chakra-ui/react";
+import { Flex, Box, Center, FormControl, HStack, Button, Image, Input, Text,VStack } from "@chakra-ui/react";
 import { useHistory } from 'react-router-dom';
-import { listagemInscricaoService, excluiInscricaoService } from '../services/inscricaoService'
+import { listagemInscricaoService, excluiInscricaoService,quantidadeInscricaoService } from '../services/inscricaoService'
 import { MdEdit, MdDelete } from 'react-icons/md';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -17,6 +17,7 @@ function Inscricoes() {
   const { user } = useContext(UserContext);
 
   const [inscricoes, setIncricoes] = useState([]);
+  const [quantidadeInscricao, setQuantidadeInscricao] = useState("");
  
 
 //--------------------------------------------------- Handles -------------------------------------------------------
@@ -71,6 +72,20 @@ function Inscricoes() {
       console.error(error);
     }
   };
+
+  const fetchQuantidadeInscricao = async () => {
+    try {
+      const response = await quantidadeInscricaoService();
+      const quantidadeInscricao = response.data[0].total
+      setQuantidadeInscricao(quantidadeInscricao);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchQuantidadeInscricao();
+  }, []); 
 
   useEffect(() => {
     fetchInscricao();
@@ -140,6 +155,11 @@ function Inscricoes() {
           mt={{ base: 50, md: 0 }}
         >
           <FormControl display="flex" flexDir="column" gap="4">
+          <VStack spacing="4">
+            <Box>
+              <Text fontWeight="bold"><strong>Quantidade de Inscritos</strong>: {quantidadeInscricao}</Text>
+            </Box>
+          </VStack>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               { inscricoes.map(inscricao => (
               <Box key={ inscricao.id } bg="gray.100" p="4" borderRadius="md" style={{ marginBottom: '12px' }}>

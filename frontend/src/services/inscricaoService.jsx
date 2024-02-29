@@ -74,10 +74,29 @@ async function editaInscricaoService(id, dados) {
   }
 }
 
+async function quantidadeInscricaoService() {
+  const URL = `${BASE_URL}/inscricao-quantidade`;
+
+  const token = localStorage.getItem('token');
+
+  try {
+      const response = await axios.get(URL,{
+          headers: {
+          'Authorization': `Bearer ${token}`,
+          }
+      });
+    return response;
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+    throw error;
+  }
+}
+
 
 export {
     inscreverService,
     listagemInscricaoService,
     editaInscricaoService,
-    excluiInscricaoService
+    excluiInscricaoService,
+    quantidadeInscricaoService
 }

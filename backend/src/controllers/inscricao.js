@@ -118,11 +118,26 @@ const editarInscricao = async (req, res) => {
 }
 };
 
+const quantidadeInscricao = async (req, res) => {
+
+  try {
+
+    const quantidadeInscricoes = await knex("inscricao").count("id as total");
+  
+    return res.status(200).json(quantidadeInscricoes);
+
+} catch (error) {
+  console.log(error);
+  return res.status(500).json({ mensagem: "Erro interno do servidor" });
+}
+};
+
 
 module.exports = {
     inscrever,
     listarInscricoes,
     editarInscricao,
     excluiInscricao,
-    listarInscricoeNome
+    listarInscricoeNome,
+    quantidadeInscricao
 };

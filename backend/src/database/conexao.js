@@ -7,4 +7,6 @@ const knex = require("knex")({
   connection: DB_URL
 });
 
+
+
 module.exports = knex;
